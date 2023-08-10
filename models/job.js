@@ -2,97 +2,110 @@ import mongoose from "mongoose";
 
 const jobSchema = new mongoose.Schema(
   {
-    buyer:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User",
-        required:true
+    buyer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-    freelancer:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"
+    freelancer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
-    title:{
-        type:String,
-        required:true
+    title: {
+      type: String,
+      required: true,
     },
-    requestedDays:{
-        type:Number,
-        required:true
+    requestedDays: {
+      type: Number,
+      required: true,
     },
-    days:{
-        type:Number,
+    days: {
+      type: Number,
     },
-    requestedBudget:{
-        type:Number,
-        required:true
+    requestedBudget: {
+      type: Number,
+      required: true,
     },
-    budget:{
-        type:Number,
+    budget: {
+      type: Number,
     },
-    description:{
-        type:String,
-        required:true
+    description: {
+      type: String,
+      required: true,
     },
-    category:{
-        type:String,
-        required:true
+    category: {
+      type: String,
+      required: true,
     },
-    subCategory:{
-        type:String,
-        required:true
+    subCategory: {
+      type: String,
+      required: true,
     },
-    files:{
-        type:[{
-           name:{
-                type:String,
-                required:true
-           },
-           format:{
-                type:String,
-                required:true
-           },
-           size:{
-                type:Number,
-                required:true
-           }
-        }]
-    },
-    status:{
-        type:String,
-        enum:["draft","created","inprogress","delivered","completed","disputed","cancelled"],
-        default:"created"
-    },
-    delivery:{
-      files:{
-        type:[{
-          name:{
-            type:String,
-            required:true
+    files: {
+      type: [
+        {
+          name: {
+            type: String,
+            required: true,
           },
-          format:{
-            type:String,
-            required:true
-          }
-        }]
-      },
-      note:{
-        type:String
-      },
-      deliveredAt:{
-        type:Date,
-      }
+          format: {
+            type: String,
+            required: true,
+          },
+          size: {
+            type: Number,
+            required: true,
+          },
+        },
+      ],
     },
-    review:{
-      rating:{
-        type:Number,
-        default:0
-      },
-      comment:{
-        type:String
-      }
+    status: {
+      type: String,
+      enum: [
+        "draft",
+        "created",
+        "inprogress",
+        "delivered",
+        "completed",
+        "disputed",
+        "cancelled",
+      ],
+      default: "created",
     },
-    disputeDescription:{
-      type:String
+
+    delivery: {
+      files: {
+        type: [
+          {
+            name: {
+              type: String,
+              required: true,
+            },
+            format: {
+              type: String,
+              required: true,
+            },
+          },
+        ],
+      },
+      note: {
+        type: String,
+      },
+      deliveredAt: {
+        type: Date,
+      },
+    },
+    review: {
+      rating: {
+        type: Number,
+        default: 0,
+      },
+      comment: {
+        type: String,
+      },
+    },
+    disputeDescription: {
+      type: String,
     },
     isDeleted: {
       type: Boolean,

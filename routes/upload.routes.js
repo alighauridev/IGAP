@@ -6,9 +6,7 @@ import { upload } from "../controllers/uploadController.js";
 
 const router = Router();
 
-router
-  .route("/uploadFile")
-  .post(upload.array("files"), Controller.uploadFile);
+router.route("/uploadFile").post(upload.array("files"), Controller.uploadFile);
 
 router.route("/file/:filename").get(Controller.getFile);
 
